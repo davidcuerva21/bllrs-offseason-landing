@@ -72,7 +72,26 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
   font-weight: 800; font-family: 'Bebas Neue', sans-serif;
 }
 .hero h1 .accent-line { display: block; color: var(--muted); font-size: 30px; font-weight: 300; margin-top: 18px; letter-spacing: 0; font-family: 'Inter', sans-serif; line-height: 1.3; }
-.hero-stats { display: flex; gap: 40px; padding-top: 36px; border-top: 1px solid var(--line); }
+/* HERO CTAs — Apple/Tesla style */
+.hero-ctas { display: flex; gap: 14px; margin: 40px 0 36px; flex-wrap: wrap; }
+.hero-cta {
+  flex: 1; min-width: 260px;
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 20px 28px;
+  text-decoration: none;
+  border: 1.5px solid;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.hero-cta .ic { font-size: 16px; opacity: 0.7; margin-bottom: 6px; }
+.hero-cta .lbl { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.1em; line-height: 1; }
+.hero-cta .sub { font-size: 11px; letter-spacing: 0.12em; opacity: 0.75; text-transform: lowercase; font-weight: 400; }
+.hero-cta-primary { background: var(--accent); color: var(--text); border-color: var(--accent); }
+.hero-cta-primary:hover { background: #246928; border-color: #246928; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,125,50,0.3); }
+.hero-cta-secondary { background: transparent; color: var(--text); border-color: var(--text); }
+.hero-cta-secondary:hover { background: var(--text); color: var(--bg); transform: translateY(-2px); }
+
+.hero-stats { display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid var(--line); }
 .stat .num { font-family: 'Bebas Neue', sans-serif; font-size: 44px; line-height: 1; }
 .stat .num .ic { color: var(--accent); font-size: 18px; vertical-align: middle; margin-right: 2px; }
 .stat .label { font-size: 10px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 8px; }
@@ -335,21 +354,77 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
 .footer .contact-line a:hover { color: var(--accent); }
 
 @media (max-width: 1024px) {
-  .hero h1 { font-size: 84px; }
+  .hero h1 { font-size: 78px; }
   .schedule-grid { grid-template-columns: repeat(4, 1fr); }
   .day-card.rest { grid-column: span 4; min-height: auto; }
+  .section { padding: 80px 0; }
+  .section-header { margin-bottom: 48px; }
 }
+
 @media (max-width: 700px) {
-  .hero-grid, .pitch-grid, .pricing-grid, .included-grid, .honesty-grid, .addons-list, .gallery { grid-template-columns: 1fr; }
-  .gallery { grid-template-columns: repeat(2, 1fr); }
-  .schedule-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 20px; }
+  .section { padding: 56px 0; }
+  .section-header { margin-bottom: 32px; }
+  .hero { padding: 56px 0 48px; }
+  .hero-grid { gap: 36px; grid-template-columns: 1fr; }
+  .hero h1 { font-size: 48px; line-height: 0.94; margin-bottom: 20px; letter-spacing: -0.015em; }
+  .hero h1 .accent-line { font-size: 17px; margin-top: 14px; line-height: 1.45; }
+  .hero-tag { margin-bottom: 24px; padding: 6px 12px; font-size: 10px; }
+  .hero-ctas { flex-direction: column; gap: 10px; margin: 24px 0 28px; }
+  .hero-cta { min-width: auto; padding: 16px 20px; }
+  .hero-cta .lbl { font-size: 18px; }
+  .hero-cta .sub { font-size: 10px; }
+  .hero-stats { gap: 18px; padding-top: 22px; flex-wrap: wrap; }
+  .stat .num { font-size: 32px; }
+  .stat .label { font-size: 9px; }
+  .hero-image { aspect-ratio: 5/4; }
+
+  .pitch-grid, .pricing-grid, .included-grid, .honesty-grid, .addons-list { grid-template-columns: 1fr; gap: 12px; }
+  .pitch-card { padding: 28px 22px; }
+  .pitch-card h3 { font-size: 18px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 36px 0 12px; }
+  .schedule-grid { grid-template-columns: 1fr; gap: 8px; }
+  .day-card { min-height: auto; padding: 20px 18px; }
   .day-card.rest { grid-column: span 1; }
+  .day-topic { font-size: 19px; }
   .process { grid-template-columns: 1fr; }
-  .process-step { border-right: none; border-bottom: 1px solid var(--line); }
-  .hero h1 { font-size: 60px; }
-  .section-title { font-size: 40px; }
-  .footer-cta h2 { font-size: 48px; }
+  .process-step { border-right: none; border-bottom: 1px solid var(--line); padding: 22px 18px; }
+  .process-step:last-child { border-bottom: none; }
+  .process-step .step-num { font-size: 30px; margin-bottom: 8px; }
+
+  .section-title { font-size: 34px; line-height: 1.02; }
+  .section-subtitle { font-size: 14px; margin-top: 14px; }
+  .section-label { font-size: 10px; margin-bottom: 14px; }
+
+  .price-card { padding: 28px 22px; }
+  .price-amount { font-size: 50px; }
+  .value-chart { padding: 28px 22px; margin-top: 28px; }
+  .chart-bars { gap: 12px; height: 180px; }
+  .bar-visual { font-size: 13px; padding-top: 8px; }
+  .bar-label .name { font-size: 11px; }
+
+  .addon-row { padding: 24px 20px; }
+  .addon-name { font-size: 19px; }
+  .addon-price { font-size: 17px; }
+
+  .included-item { padding: 16px 0; gap: 14px; }
+  .included-icon { width: 36px; height: 36px; font-size: 18px; }
+
+  .honesty-block { padding: 24px 20px; }
+
+  .footer-cta { padding: 72px 0; background-attachment: scroll; }
+  .footer-cta h2 { font-size: 40px; }
+  .footer-cta p { font-size: 15px; margin-bottom: 32px; }
+  .cta-buttons { flex-direction: column; width: 100%; }
+  .btn { width: 100%; justify-content: center; padding: 14px 22px; font-size: 11px; }
+
+  .nav { padding: 14px 0; }
+  .nav-logo img { height: 18px; }
+  .nav-logo .sub { font-size: 12px; }
   .nav-links { display: none; }
+  .nav-cta { padding: 7px 14px; font-size: 10px; }
+
+  .footer { padding: 36px 0 28px; flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 </style>
 </head>
@@ -379,6 +454,19 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
     <div>
       <div class="hero-tag">Offseason · Bangkok · 15+</div>
       <h1>Train where pros train.<span class="accent-line">A focused offseason immersion for players who take development seriously — Spanish methodology, professional periodization, three hours every morning, six days a week.</span></h1>
+      <div class="hero-ctas">
+        <a href="mailto:info@ballersbangkok.com?subject=Offseason%20Program%20Inquiry" class="hero-cta hero-cta-primary">
+          <span class="ic">✉</span>
+          <span class="lbl">Register by Email</span>
+          <span class="sub">info@ballersbangkok.com</span>
+        </a>
+        <a href="https://wa.me/66956706136?text=Hi%20BALLERS%2C%20I%27m%20interested%20in%20the%20Offseason%20Program" class="hero-cta hero-cta-secondary">
+          <span class="ic">◎</span>
+          <span class="lbl">Chat on WhatsApp</span>
+          <span class="sub">+66 95 670 6136</span>
+        </a>
+      </div>
+
       <div class="hero-stats">
         <div class="stat"><div class="num">3h</div><div class="label">Daily block</div></div>
         <div class="stat"><div class="num">6</div><div class="label">Days / week</div></div>
@@ -773,7 +861,7 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
     <p>If you're 15 or over, ambitious about football, and looking for a focused environment to develop during your break — get in touch and we will build a plan with you.</p>
     <div class="cta-buttons">
       <a href="mailto:info@ballersbangkok.com" class="btn btn-primary"><span class="ic">✉</span>info@ballersbangkok.com</a>
-      <a href="https://wa.me/6656706136" class="btn btn-secondary"><span class="ic">◎</span>WhatsApp +66 56706136</a>
+      <a href="https://wa.me/66956706136" class="btn btn-secondary"><span class="ic">◎</span>WhatsApp +66 95 670 6136</a>
     </div>
   </div>
 </section>
@@ -785,7 +873,7 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
     <div class="contact-line">
       <a href="mailto:info@ballersbangkok.com">info@ballersbangkok.com</a>
       &nbsp;·&nbsp;
-      <a href="https://wa.me/6656706136">+66 56706136</a>
+      <a href="https://wa.me/66956706136">+66 95 670 6136</a>
     </div>
     <div class="small">BLLRS. Offseason · Bangkok · 2026</div>
   </div>
