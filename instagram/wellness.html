@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BLLRS Wellness — IG post</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A0A;
+  --text: #FFFFFF;
+  --muted: #8A8A8A;
+  --dim: #4A4A4A;
+  --accent: #22C55E;
+  --line: rgba(255,255,255,0.18);
+  --line-soft: rgba(255,255,255,0.1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #1a1a1a; font-family: 'Inter', sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; }
+
+.slide {
+  width: 1080px;
+  height: 1350px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  margin: 0 auto;
+}
+.slide-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0.55;
+  filter: grayscale(40%) contrast(1.05) brightness(0.9);
+}
+.slide-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.75) 100%);
+}
+.slide-content {
+  position: relative; z-index: 2;
+  width: 100%; height: 100%;
+  padding: 64px 70px;
+  display: flex; flex-direction: column;
+}
+
+/* Header */
+.s-header {
+  display: flex; flex-direction: column; align-items: center; gap: 22px;
+}
+.s-header img { height: 30px; opacity: 0.95; }
+.s-header .tag {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 13px; letter-spacing: 0.32em; font-weight: 500; color: var(--text);
+}
+.s-header .tag::before, .s-header .tag::after { content: ''; width: 24px; height: 1px; background: var(--text); opacity: 0.6; }
+.s-header .stamp {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 18px; border: 1px solid var(--line);
+  font-size: 13px; letter-spacing: 0.28em; color: var(--text); font-weight: 500;
+}
+.s-header .stamp::before { content: ''; width: 10px; height: 10px; background: var(--accent); }
+
+/* Massive type */
+.massive-stack {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0;
+  margin: 30px 0;
+}
+.massive-solid {
+  font-family: 'Bebas Neue', sans-serif; font-size: 210px;
+  line-height: 0.85; letter-spacing: -0.005em; color: var(--text);
+  text-align: center;
+}
+.massive-outline {
+  font-family: 'Bebas Neue', sans-serif; font-size: 160px;
+  line-height: 0.85; letter-spacing: 0.005em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--text);
+  text-align: center;
+  margin-top: -10px;
+}
+
+/* Services list */
+.services {
+  display: flex; flex-direction: column; gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 16px 0 32px;
+}
+.svc-row {
+  display: grid; grid-template-columns: 32px 1fr auto;
+  align-items: center; gap: 20px;
+  padding: 22px 4px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.svc-row:last-child { border-bottom: none; }
+.svc-num { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.2em; color: var(--accent); }
+.svc-name {
+  font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.06em;
+  line-height: 1.1;
+}
+.svc-tag {
+  font-size: 10px; letter-spacing: 0.28em; color: var(--muted);
+  padding: 5px 10px; border: 1px solid var(--line); white-space: nowrap;
+}
+.svc-tag.free { color: var(--accent); border-color: var(--accent-line, rgba(34,197,94,0.45)); }
+
+/* Price block */
+.price-block {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 28px;
+}
+.pb-cell { padding: 24px 24px; text-align: center; border: 1px solid var(--line); }
+.pb-cell + .pb-cell { border-left: none; }
+.pb-cell .lbl { font-size: 10px; letter-spacing: 0.32em; color: var(--muted); margin-bottom: 10px; }
+.pb-cell .val { font-family: 'Bebas Neue', sans-serif; font-size: 44px; letter-spacing: -0.005em; line-height: 1; color: var(--text); }
+.pb-cell.price .val { color: var(--accent); }
+.pb-cell.price .val .cur { font-size: 18px; color: var(--muted); vertical-align: top; margin-right: 4px; font-family: 'Inter'; font-weight: 300; }
+
+/* Booking */
+.booking {
+  text-align: center;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center; gap: 22px;
+}
+.booking .ar { color: var(--accent); font-size: 18px; }
+.booking .lbl { font-size: 13px; letter-spacing: 0.28em; color: var(--text); font-weight: 500; }
+.booking .lbl strong { color: var(--accent); font-weight: 700; }
+
+/* Footer venue */
+.venue {
+  margin-top: auto; text-align: center; padding-top: 32px;
+}
+.venue .city { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.18em; color: var(--text); margin-bottom: 6px; }
+.venue .sub { font-size: 10px; letter-spacing: 0.32em; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <div class="slide-bg" style="background-image: url('../assets/cta-bg.jpg');"></div>
+  <div class="slide-content">
+
+    <div class="s-header">
+      <img src="../assets/bllrs-wordmark.png" alt="BLLRS">
+      <div class="tag">WELLNESS SESSION</div>
+      <div class="stamp">BANGKOK · 2026</div>
+    </div>
+
+    <div class="massive-stack">
+      <div class="massive-solid">RESET</div>
+      <div class="massive-outline">RECOVER</div>
+    </div>
+
+    <div class="services">
+      <div class="svc-row">
+        <div class="svc-num">01</div>
+        <div class="svc-name">Mat Pilates Flow</div>
+        <div class="svc-tag">CORE · BREATH</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-num">02</div>
+        <div class="svc-name">Ginger Shot · Vegain Bar</div>
+        <div class="svc-tag free">FREE</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-num">03</div>
+        <div class="svc-name">Ice Bath Recovery</div>
+        <div class="svc-tag">RESET</div>
+      </div>
+    </div>
+
+    <div class="price-block">
+      <div class="pb-cell">
+        <div class="lbl">SPOTS</div>
+        <div class="val">ONLY 6</div>
+      </div>
+      <div class="pb-cell price">
+        <div class="lbl">PRICE</div>
+        <div class="val"><span class="cur">฿</span>750</div>
+      </div>
+    </div>
+
+    <div class="booking">
+      <span class="ar">↓</span>
+      <span class="lbl">BOOK VIA LINE — <strong>@ballersbangkok</strong></span>
+      <span class="ar">↓</span>
+    </div>
+
+    <div class="venue">
+      <div class="city">BANGKOK · THAILAND</div>
+      <div class="sub">BALLERS BANGKOK PERFORMANCE CENTER</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
