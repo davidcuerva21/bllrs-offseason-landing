@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BLLRS Offseason — IG Stories (1080×1920)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A0A;
+  --text: #FFFFFF;
+  --muted: #8A8A8A;
+  --dim: #4A4A4A;
+  --accent: #22C55E;
+  --line: rgba(255,255,255,0.18);
+  --line-soft: rgba(255,255,255,0.1);
+  --accent-line: rgba(34,197,94,0.45);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #1a1a1a; font-family: 'Inter', sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; }
+
+.story {
+  width: 1080px;
+  height: 1920px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  margin: 0 auto;
+  page-break-after: always;
+}
+.story-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0.5;
+  filter: grayscale(55%) contrast(1.05) brightness(0.85);
+}
+.story-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.42) 0%, rgba(10,10,10,0.55) 50%, rgba(10,10,10,0.72) 100%);
+}
+.story-content {
+  position: relative; z-index: 2;
+  width: 100%; height: 100%;
+  padding: 100px 80px;
+  display: flex; flex-direction: column;
+}
+
+/* Header */
+.s-header { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.s-header img { height: 32px; opacity: 0.95; }
+.s-header .tag {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 13px; letter-spacing: 0.32em; font-weight: 500; color: var(--text);
+}
+.s-header .tag::before, .s-header .tag::after { content: ''; width: 24px; height: 1px; background: var(--text); opacity: 0.6; }
+.s-header .stamp {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 9px 20px; border: 1px solid var(--line);
+  font-size: 13px; letter-spacing: 0.28em; color: var(--text); font-weight: 500;
+}
+.s-header .stamp::before { content: ''; width: 10px; height: 10px; background: var(--accent); }
+
+.s-numtag {
+  display: flex; align-items: center; gap: 14px; justify-content: center;
+  font-size: 12px; letter-spacing: 0.32em; font-weight: 500; color: var(--muted);
+}
+.s-numtag::before, .s-numtag::after { content: ''; width: 22px; height: 1px; background: var(--muted); }
+.s-numtag .num { color: var(--accent); }
+
+/* Hero massive type */
+.massive-stack {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.massive-solid {
+  font-family: 'Bebas Neue', sans-serif; font-size: 340px;
+  line-height: 0.85; letter-spacing: -0.01em; color: var(--text); text-align: center;
+}
+.massive-outline {
+  font-family: 'Bebas Neue', sans-serif; font-size: 280px;
+  line-height: 0.85; letter-spacing: -0.01em;
+  color: transparent; -webkit-text-stroke: 1.5px var(--text);
+  text-align: center; margin-top: -30px;
+}
+
+.hero-tagline {
+  display: flex; align-items: center; gap: 22px; justify-content: center;
+  font-size: 19px; letter-spacing: 0.32em; font-weight: 500; color: var(--text);
+  margin-top: 60px;
+}
+.hero-tagline .sep { width: 30px; height: 1px; background: var(--text); opacity: 0.45; }
+
+.divider-line { width: 100%; height: 1px; background: var(--line); margin: 50px 0 36px; }
+
+.footer-spec { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.footer-spec .row { text-align: center; }
+.footer-spec .row .label { font-size: 11px; letter-spacing: 0.32em; color: var(--muted); margin-bottom: 6px; }
+.footer-spec .row .val { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.12em; color: var(--text); }
+
+.swipe-up { text-align: center; margin-top: 36px; font-size: 12px; letter-spacing: 0.32em; color: var(--muted); }
+.swipe-up::after { content: ' ↑'; color: var(--accent); }
+
+/* Stats */
+.stats-grid {
+  flex: 1; display: grid; grid-template-columns: repeat(2, 1fr);
+  align-content: center; padding: 40px 0;
+}
+.stat-cell {
+  text-align: center; padding: 60px 20px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.stat-cell:nth-child(odd) { border-right: 1px solid var(--line-soft); }
+.stat-cell:nth-child(3), .stat-cell:nth-child(4) { border-bottom: none; }
+.stat-cell .v { font-family: 'Bebas Neue', sans-serif; font-size: 180px; line-height: 0.9; color: var(--text); }
+.stat-cell .v .sm { font-size: 80px; vertical-align: top; margin-left: 4px; color: var(--accent); }
+.stat-cell .l { font-size: 14px; letter-spacing: 0.3em; color: var(--muted); margin-top: 16px; }
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 108px; line-height: 0.95;
+  letter-spacing: -0.01em; text-align: center; margin: 36px 0 24px;
+}
+.section-subtitle {
+  text-align: center; font-size: 16px; letter-spacing: 0.05em;
+  color: var(--muted); max-width: 760px; margin: 0 auto; line-height: 1.6;
+}
+
+/* WEEK */
+.week-list { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 30px 0; gap: 6px; }
+.week-row {
+  display: grid; grid-template-columns: 130px 1fr auto;
+  align-items: center; gap: 28px;
+  padding: 30px 22px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.week-row:last-child { border-bottom: none; }
+.week-row .day { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.22em; color: var(--muted); }
+.week-row .topic { font-family: 'Bebas Neue', sans-serif; font-size: 46px; letter-spacing: 0.02em; line-height: 1; }
+.week-row.rest .topic { color: transparent; -webkit-text-stroke: 1px var(--text); }
+.week-row.rest .day { color: var(--dim); }
+.week-row .load { display: inline-flex; gap: 6px; }
+.week-row .load .d { width: 9px; height: 9px; background: var(--line); }
+.week-row .load .d.on { background: var(--accent); }
+
+/* PRICING */
+.price-list { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 20px 0; gap: 0; }
+.price-row {
+  display: grid; grid-template-columns: 1fr auto auto;
+  align-items: center; gap: 36px;
+  padding: 36px 26px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.price-row:last-child { border-bottom: none; }
+.price-row .name { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 0.04em; line-height: 1; }
+.price-row .ses { font-size: 14px; letter-spacing: 0.18em; color: var(--muted); margin-top: 6px; }
+.price-row .amount { font-family: 'Bebas Neue', sans-serif; font-size: 70px; letter-spacing: -0.01em; }
+.price-row .amount .cur { font-size: 28px; color: var(--muted); vertical-align: top; margin-right: 4px; font-family: 'Inter'; font-weight: 300; }
+.price-row.featured { background: linear-gradient(90deg, rgba(34,197,94,0.08), transparent); border-left: 3px solid var(--accent); padding-left: 23px; }
+.price-row.featured .name, .price-row.featured .amount { color: var(--accent); }
+.price-row .per { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 0.18em; color: var(--accent); margin-top: 8px; }
+
+/* END STORY */
+.end-massive { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin: 36px 0 40px; }
+.em-off { font-family: 'Bebas Neue', sans-serif; font-size: 260px; line-height: 0.85; letter-spacing: -0.01em; color: var(--text); }
+.em-season { font-family: 'Bebas Neue', sans-serif; font-size: 190px; line-height: 0.85; letter-spacing: -0.01em; color: var(--text); margin-top: -12px; }
+.em-year { display: flex; align-items: flex-end; gap: 10px; margin-top: 6px; }
+.ey-num { font-family: 'Bebas Neue', sans-serif; font-size: 170px; line-height: 0.85; color: var(--muted); }
+.ey-dot { width: 28px; height: 28px; background: var(--accent); margin-bottom: 22px; }
+
+.end-quote {
+  text-align: center; font-size: 20px; letter-spacing: 0.15em;
+  color: var(--text); font-weight: 500; margin: 0 auto 44px;
+  max-width: 880px; font-style: italic;
+}
+.end-register {
+  display: flex; align-items: center; justify-content: center; gap: 24px;
+  padding: 26px 50px; border: 1px solid var(--line);
+  margin: 0 auto 52px; width: fit-content;
+}
+.end-register .ar { font-size: 20px; color: var(--accent); font-weight: 300; }
+.end-register .lbl { font-size: 15px; letter-spacing: 0.3em; color: var(--text); font-weight: 500; }
+
+.end-footer { display: flex; flex-direction: column; gap: 32px; align-items: center; }
+.end-footer .ef-row { display: flex; gap: 96px; padding-top: 32px; border-top: 1px solid var(--line); width: 100%; justify-content: center; }
+.end-footer .ef-col { text-align: center; }
+.end-footer .ef-lbl { font-size: 12px; letter-spacing: 0.35em; color: var(--muted); margin-bottom: 10px; }
+.end-footer .ef-val { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.08em; color: var(--text); }
+.end-footer .ef-location { text-align: center; margin-top: 4px; }
+.end-footer .loc-city { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.18em; color: var(--text); margin-bottom: 8px; }
+.end-footer .loc-sub { font-size: 12px; letter-spacing: 0.32em; color: var(--muted); }
+
+.story-corner-num {
+  position: absolute; top: 60px; right: 80px; z-index: 3;
+  font-family: 'Bebas Neue', sans-serif; font-size: 15px;
+  letter-spacing: 0.2em; color: var(--muted);
+}
+.story-corner-num .c { color: var(--accent); }
+.story-corner-end {
+  position: absolute; bottom: 50px; left: 80px; z-index: 3;
+  font-size: 12px; letter-spacing: 0.4em; color: var(--muted);
+}
+
+.story-footer-logo {
+  position: absolute; bottom: 60px; left: 0; right: 0;
+  text-align: center; z-index: 3;
+}
+.story-footer-logo img { height: 22px; opacity: 0.6; }
+
+/* QR STORY */
+.qr-massive {
+  font-family: 'Bebas Neue', sans-serif; font-size: 220px; line-height: 0.9;
+  text-align: center; margin: 30px 0; letter-spacing: -0.01em;
+}
+.qr-massive .out { color: transparent; -webkit-text-stroke: 1.5px var(--text); display: block; font-size: 160px; margin-top: -10px; }
+
+.qr-wrapper {
+  width: 540px; height: 540px; background: #FFFFFF; margin: 30px auto 36px;
+  padding: 30px; display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.qr-wrapper img { width: 100%; height: 100%; image-rendering: pixelated; }
+.qr-wrapper::before, .qr-wrapper::after {
+  content: ''; position: absolute; width: 28px; height: 28px;
+  border: 2px solid var(--accent);
+}
+.qr-wrapper::before { top: -8px; left: -8px; border-right: none; border-bottom: none; }
+.qr-wrapper::after { bottom: -8px; right: -8px; border-left: none; border-top: none; }
+
+.qr-url {
+  text-align: center; font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: 0.18em; color: var(--accent);
+  margin: 4px 0 28px;
+}
+.qr-tagline {
+  text-align: center; font-size: 14px; letter-spacing: 0.28em;
+  color: var(--muted); margin-bottom: 36px;
+}
+</style>
+</head>
+<body>
+
+<!-- STORY 1 — HERO -->
+<div class="story">
+  <div class="story-bg" style="background-image: url('../assets/slide1-hero.jpg');"></div>
+  <div class="story-corner-num"><span class="c">●</span> 01 / 06</div>
+  <div class="story-content">
+    <div class="s-header">
+      <img src="../assets/bllrs-wordmark.png" alt="BLLRS">
+      <div class="tag">OFFSEASON 2026</div>
+      <div class="stamp">BANGKOK · 2026</div>
+    </div>
+    <div class="massive-stack">
+      <div class="massive-solid">OFF</div>
+      <div class="massive-outline">SEASON</div>
+    </div>
+    <div class="hero-tagline">
+      <span>TRAIN</span><span class="sep"></span><span>RECOVER</span><span class="sep"></span><span>PERFORM</span>
+    </div>
+    <div class="divider-line"></div>
+    <div class="footer-spec">
+      <div class="row"><div class="label">PROGRAM</div><div class="val">BLLRS OFFSEASON</div></div>
+      <div class="row"><div class="label">LOCATION</div><div class="val">BANGKOK · THAILAND</div></div>
+    </div>
+    <div class="swipe-up">SWIPE UP FOR INFO</div>
+  </div>
+</div>
+
+<!-- STORY 2 — PROGRAM -->
+<div class="story">
+  <div class="story-bg" style="background-image: url('../assets/g4.jpg');"></div>
+  <div class="story-corner-num"><span class="c">●</span> 02 / 06</div>
+  <div class="story-content">
+    <div class="s-numtag"><span class="num">02</span><span>THE PROGRAM</span></div>
+    <h2 class="section-title">ONE BLOCK<br>SIX DAYS</h2>
+    <p class="section-subtitle">Group training. Mixed levels from amateur to semi-pro.<br>Same daily topic, load adapted to each player.</p>
+    <div class="stats-grid">
+      <div class="stat-cell"><div class="v">3<span class="sm">h</span></div><div class="l">DAILY BLOCK</div></div>
+      <div class="stat-cell"><div class="v">6</div><div class="l">DAYS / WEEK</div></div>
+      <div class="stat-cell"><div class="v">8</div><div class="l">MAX PER GROUP</div></div>
+      <div class="stat-cell"><div class="v">15<span class="sm">+</span></div><div class="l">AGE MIN</div></div>
+    </div>
+  </div>
+  <div class="story-footer-logo"><img src="../assets/bllrs-wordmark.png" alt="BLLRS"></div>
+</div>
+
+<!-- STORY 3 — WEEK -->
+<div class="story">
+  <div class="story-bg" style="background-image: url('../assets/g5.jpg');"></div>
+  <div class="story-corner-num"><span class="c">●</span> 03 / 06</div>
+  <div class="story-content">
+    <div class="s-numtag"><span class="num">03</span><span>THE WEEK</span></div>
+    <h2 class="section-title">PRO MICROCYCLE<br>PERIODIZATION</h2>
+    <div class="week-list">
+      <div class="week-row"><div class="day">MON</div><div class="topic">Speed &amp; Power</div><div class="load"><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d"></div><div class="d"></div></div></div>
+      <div class="week-row"><div class="day">TUE</div><div class="topic">Strength &amp; Resistance</div><div class="load"><div class="d on"></div><div class="d on"></div><div class="d"></div><div class="d"></div><div class="d"></div></div></div>
+      <div class="week-row"><div class="day">WED</div><div class="topic">Conditioning &amp; Endurance</div><div class="load"><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d"></div><div class="d"></div></div></div>
+      <div class="week-row"><div class="day">THU</div><div class="topic">Active Recovery &amp; Skill</div><div class="load"><div class="d on"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div></div>
+      <div class="week-row"><div class="day">FRI</div><div class="topic">Max Velocity &amp; Agility</div><div class="load"><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d"></div></div></div>
+      <div class="week-row"><div class="day">SAT</div><div class="topic">Tactical Integration</div><div class="load"><div class="d on"></div><div class="d on"></div><div class="d"></div><div class="d"></div><div class="d"></div></div></div>
+      <div class="week-row rest"><div class="day">SUN</div><div class="topic">REST</div><div class="load"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div></div>
+    </div>
+  </div>
+  <div class="story-footer-logo"><img src="../assets/bllrs-wordmark.png" alt="BLLRS"></div>
+</div>
+
+<!-- STORY 4 — PRICING -->
+<div class="story">
+  <div class="story-bg" style="background-image: url('../assets/g6.jpg');"></div>
+  <div class="story-corner-num"><span class="c">●</span> 04 / 06</div>
+  <div class="story-content">
+    <div class="s-numtag"><span class="num">04</span><span>PRICING</span></div>
+    <h2 class="section-title">PAY FOR<br>WHAT YOU TRAIN</h2>
+    <div class="price-list">
+      <div class="price-row">
+        <div><div class="name">Drop-in</div><div class="ses">1 SESSION · 3H</div></div>
+        <div class="amount"><span class="cur">฿</span>1,200</div>
+        <div class="per">฿1,200<br><span style="color:var(--dim);font-weight:400;">/ SESSION</span></div>
+      </div>
+      <div class="price-row">
+        <div><div class="name">Weekly</div><div class="ses">6 SESSIONS · 18H</div></div>
+        <div class="amount"><span class="cur">฿</span>6,000</div>
+        <div class="per">฿1,000<br><span style="color:var(--dim);font-weight:400;">/ SESSION</span></div>
+      </div>
+      <div class="price-row">
+        <div><div class="name">2-Week</div><div class="ses">12 SESSIONS · 36H</div></div>
+        <div class="amount"><span class="cur">฿</span>10,500</div>
+        <div class="per">฿875<br><span style="color:var(--dim);font-weight:400;">/ SESSION</span></div>
+      </div>
+      <div class="price-row featured">
+        <div><div class="name">4-Week</div><div class="ses">24 SESSIONS · 72H · BEST VALUE</div></div>
+        <div class="amount"><span class="cur">฿</span>20,000</div>
+        <div class="per">฿833<br><span style="color:var(--dim);font-weight:400;">/ SESSION</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="story-footer-logo"><img src="../assets/bllrs-wordmark.png" alt="BLLRS"></div>
+</div>
+
+<!-- STORY 5 — END -->
+<div class="story">
+  <div class="story-bg" style="background-image: url('../assets/cta-bg.jpg');"></div>
+  <div class="story-corner-end">END</div>
+  <div class="story-content">
+    <div class="s-header">
+      <img src="../assets/bllrs-wordmark.png" alt="BLLRS">
+      <div class="tag">BEGIN</div>
+      <div class="stamp">OFFSEASON 2026</div>
+    </div>
+    <div class="end-massive">
+      <div class="em-off">OFF</div>
+      <div class="em-season">SEASON</div>
+      <div class="em-year"><span class="ey-num">2026</span><span class="ey-dot"></span></div>
+    </div>
+    <div class="end-quote">"DON'T CHASE PERFECTION — CHASE BETTER."</div>
+    <div class="end-register">
+      <span class="ar">↓</span>
+      <span class="lbl">REGISTER VIA EMAIL OR WHATSAPP</span>
+      <span class="ar">↓</span>
+    </div>
+    <div class="end-footer">
+      <div class="ef-row">
+        <div class="ef-col"><div class="ef-lbl">EMAIL</div><div class="ef-val">INFO@BALLERSBANGKOK.COM</div></div>
+        <div class="ef-col"><div class="ef-lbl">WHATSAPP</div><div class="ef-val">+66 95 670 6136</div></div>
+      </div>
+      <div class="ef-location">
+        <div class="loc-city">BANGKOK · THAILAND</div>
+        <div class="loc-sub">BLLRS PERFORMANCE CENTER</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY 6 — QR -->
+<div class="story">
+  <div class="story-bg" style="background-image: url('../assets/g8.jpg');"></div>
+  <div class="story-corner-num"><span class="c">●</span> 06 / 06</div>
+  <div class="story-content">
+    <div class="s-header">
+      <img src="../assets/bllrs-wordmark.png" alt="BLLRS">
+      <div class="tag">SCAN FOR INFO</div>
+      <div class="stamp">FULL PROGRAM · LIVE</div>
+    </div>
+
+    <div class="qr-massive">SCAN<br><span class="out">ME</span></div>
+
+    <div class="qr-wrapper">
+      <img src="../assets/qr-offseason.png" alt="QR Code">
+    </div>
+
+    <div class="qr-url">BLLRS-OFFSEASON.VERCEL.APP</div>
+    <div class="qr-tagline">SCHEDULE · PRICING · DETAILS · CONTACT</div>
+
+    <div class="end-footer" style="margin-top: auto;">
+      <div class="ef-row">
+        <div class="ef-col"><div class="ef-lbl">EMAIL</div><div class="ef-val">INFO@BALLERSBANGKOK.COM</div></div>
+        <div class="ef-col"><div class="ef-lbl">WHATSAPP</div><div class="ef-val">+66 95 670 6136</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // URL param ?story=N → show only story N (for headless screenshot rendering)
+  const s = new URLSearchParams(location.search).get('story');
+  if (s) {
+    document.body.style.background = '#0A0A0A';
+    document.body.style.margin = '0';
+    document.querySelectorAll('.story').forEach((el, i) => {
+      if (i + 1 != parseInt(s)) el.remove();
+    });
+  }
+</script>
+</body>
+</html>
