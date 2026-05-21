@@ -140,11 +140,34 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
 .pitch-card h3 { font-size: 22px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
 .pitch-card p { color: var(--muted); font-size: 15px; line-height: 1.65; }
 
-/* GALLERY 9 */
+/* GALLERY 4x2 */
 .gallery {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
   margin: 72px 0 24px;
 }
+
+/* INSIDE STRIP — 3 wider photos */
+.inside-strip {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  margin: 0 0 0 0;
+  padding: 0;
+}
+.inside-cell {
+  aspect-ratio: 4/5;
+  background-size: cover; background-position: center;
+  border: 1px solid var(--line);
+  filter: grayscale(20%) contrast(1.05);
+  transition: all 0.5s ease;
+  position: relative; overflow: hidden;
+}
+.inside-cell::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(10,10,10,0.4) 100%);
+}
+.inside-cell:hover { filter: grayscale(0%); transform: scale(1.015); border-color: var(--accent-line); }
+.inside-cell.i1 { background-image: url('assets/inside1.jpg'); }
+.inside-cell.i2 { background-image: url('assets/inside2.jpg'); }
+.inside-cell.i3 { background-image: url('assets/inside3.jpg'); }
 .gallery-cell {
   aspect-ratio: 1/1;
   background-size: cover; background-position: center;
@@ -383,6 +406,8 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
   .pitch-card { padding: 28px 22px; }
   .pitch-card h3 { font-size: 18px; }
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 36px 0 12px; }
+  .inside-strip { grid-template-columns: 1fr; gap: 8px; }
+  .inside-cell { aspect-ratio: 4/3; }
   .schedule-grid { grid-template-columns: 1fr; gap: 8px; }
   .day-card { min-height: auto; padding: 20px 18px; }
   .day-card.rest { grid-column: span 1; }
@@ -505,7 +530,7 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
       </div>
     </div>
 
-    <!-- GALLERY -->
+    <!-- GALLERY 4x2 -->
     <div class="gallery">
       <div class="gallery-cell g1"></div>
       <div class="gallery-cell g4"></div>
@@ -514,8 +539,18 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
       <div class="gallery-cell g6"></div>
       <div class="gallery-cell g3"></div>
       <div class="gallery-cell g7"></div>
-      <div class="gallery-cell g9"></div>
       <div class="gallery-cell g8"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE THE PROGRAM PHOTO STRIP -->
+<section class="section" style="padding-top: 0; border-bottom: none;">
+  <div class="container">
+    <div class="inside-strip">
+      <div class="inside-cell i1"></div>
+      <div class="inside-cell i2"></div>
+      <div class="inside-cell i3"></div>
     </div>
   </div>
 </section>
@@ -613,8 +648,8 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
       <div class="price-card">
         <div class="price-name">2-Week</div>
         <div class="price-sub">12 sessions · 36h</div>
-        <div class="price-amount"><span class="currency">฿</span>11,000</div>
-        <div class="price-per">฿917 per session</div>
+        <div class="price-amount"><span class="currency">฿</span>10,500</div>
+        <div class="price-per">฿875 per session</div>
         <ul class="price-features">
           <li>Two full cycles</li>
           <li>Mid-program check-in</li>
@@ -648,7 +683,7 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
           <div class="bar-label"><div class="name">Weekly</div><div class="desc">6 sessions</div></div>
         </div>
         <div class="chart-bar">
-          <div class="bar-visual" style="height: 76%;">฿917</div>
+          <div class="bar-visual" style="height: 73%;">฿875</div>
           <div class="bar-label"><div class="name">2-Week</div><div class="desc">12 sessions</div></div>
         </div>
         <div class="chart-bar">
