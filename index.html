@@ -140,15 +140,15 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
 .pitch-card h3 { font-size: 22px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
 .pitch-card p { color: var(--muted); font-size: 15px; line-height: 1.65; }
 
-/* GALLERY 4x2 */
+/* GALLERY 3x2 */
 .gallery {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
   margin: 72px 0 24px;
 }
 
-/* INSIDE STRIP — 3 wider photos */
+/* INSIDE STRIP — 2 wider photos */
 .inside-strip {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
   margin: 0 0 0 0;
   padding: 0;
 }
@@ -262,26 +262,47 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
 .price-features li { padding: 6px 0; font-size: 13px; color: var(--text); display: flex; gap: 10px; line-height: 1.5; }
 .price-features li::before { content: '+'; color: var(--accent); flex-shrink: 0; font-weight: 600; }
 
-/* CHART */
-.value-chart {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  padding: 44px 40px;
-  margin-top: 40px;
+/* VALUE STATS — Apple-style typography */
+.value-stats {
+  margin-top: 48px;
+  padding: 48px 8px 8px;
+  border-top: 1px solid var(--line);
 }
-.chart-title { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; text-align: center; }
-.chart-title strong { color: var(--accent); }
-.chart-bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: end; height: 220px; }
-.chart-bar { display: flex; flex-direction: column; align-items: center; }
-.bar-visual {
-  width: 100%; background: linear-gradient(180deg, var(--text), #555);
-  display: flex; align-items: flex-start; justify-content: center; padding-top: 12px;
-  color: var(--bg); font-family: 'Bebas Neue', sans-serif; font-size: 17px;
+.value-stats-header {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  margin-bottom: 56px; flex-wrap: wrap;
 }
-.bar-visual.featured { background: linear-gradient(180deg, var(--accent), #15803D); color: var(--text); }
-.bar-label { margin-top: 14px; text-align: center; }
-.bar-label .name { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); }
-.bar-label .desc { font-size: 10px; color: var(--muted); margin-top: 4px; letter-spacing: 0.1em; text-transform: uppercase; }
+.value-label { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text); }
+.value-arrow { color: var(--accent); font-size: 22px; font-weight: 300; }
+.value-sublabel { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+.value-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  position: relative;
+}
+.value-col {
+  padding: 24px 18px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+  position: relative;
+  transition: background 0.3s;
+}
+.value-col:last-child { border-right: none; }
+.value-col:hover { background: rgba(255,255,255,0.02); }
+.vc-amount {
+  font-family: 'Bebas Neue', sans-serif; font-size: 58px;
+  line-height: 1; letter-spacing: -0.01em; color: var(--text);
+  margin-bottom: 14px;
+}
+.vc-amount .cur { font-size: 22px; color: var(--muted); vertical-align: top; margin-right: 3px; font-family: 'Inter', sans-serif; font-weight: 300; }
+.vc-divider { width: 24px; height: 1px; background: var(--line); margin: 0 auto 14px; }
+.vc-tier { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); margin-bottom: 6px; }
+.vc-sub { font-size: 10px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px; }
+.vc-save { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 0.14em; color: var(--accent); padding-top: 10px; border-top: 1px solid var(--line); }
+.vc-save.vc-baseline { color: var(--dim); }
+.value-col.featured { background: linear-gradient(180deg, rgba(34,197,94,0.05), transparent); }
+.value-col.featured .vc-amount { color: var(--accent); }
+.value-col.featured .vc-divider { background: var(--accent-line); width: 32px; }
+.value-col.featured .vc-tier { color: var(--accent); }
 
 /* INCLUDED */
 .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -423,10 +444,14 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
 
   .price-card { padding: 28px 22px; }
   .price-amount { font-size: 50px; }
-  .value-chart { padding: 28px 22px; margin-top: 28px; }
-  .chart-bars { gap: 12px; height: 180px; }
-  .bar-visual { font-size: 13px; padding-top: 8px; }
-  .bar-label .name { font-size: 11px; }
+  .value-stats { padding: 32px 0 0; margin-top: 28px; }
+  .value-stats-header { margin-bottom: 32px; gap: 10px; }
+  .value-row { grid-template-columns: repeat(2, 1fr); }
+  .value-col { padding: 20px 12px; border-bottom: 1px solid var(--line); }
+  .value-col:nth-child(2) { border-right: none; }
+  .value-col:nth-child(3), .value-col:nth-child(4) { border-bottom: none; }
+  .vc-amount { font-size: 44px; margin-bottom: 10px; }
+  .vc-amount .cur { font-size: 16px; }
 
   .addon-row { padding: 24px 20px; }
   .addon-name { font-size: 19px; }
@@ -530,14 +555,12 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
       </div>
     </div>
 
-    <!-- GALLERY 4x2 -->
+    <!-- GALLERY 3x2 -->
     <div class="gallery">
       <div class="gallery-cell g1"></div>
       <div class="gallery-cell g4"></div>
-      <div class="gallery-cell g2"></div>
       <div class="gallery-cell g5"></div>
       <div class="gallery-cell g6"></div>
-      <div class="gallery-cell g3"></div>
       <div class="gallery-cell g7"></div>
       <div class="gallery-cell g8"></div>
     </div>
@@ -548,7 +571,6 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
 <section class="section" style="padding-top: 0; border-bottom: none;">
   <div class="container">
     <div class="inside-strip">
-      <div class="inside-cell i1"></div>
       <div class="inside-cell i2"></div>
       <div class="inside-cell i3"></div>
     </div>
@@ -671,24 +693,40 @@ h1, h2, h3, h4 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-weight: 70
       </div>
     </div>
 
-    <div class="value-chart">
-      <div class="chart-title">Per-session rate <strong>drops</strong> as commitment grows</div>
-      <div class="chart-bars">
-        <div class="chart-bar">
-          <div class="bar-visual" style="height: 100%;">฿1,200</div>
-          <div class="bar-label"><div class="name">Drop-in</div><div class="desc">1 session</div></div>
+    <div class="value-stats">
+      <div class="value-stats-header">
+        <span class="value-label">Per-session rate</span>
+        <span class="value-arrow">↘</span>
+        <span class="value-sublabel">drops as commitment grows</span>
+      </div>
+      <div class="value-row">
+        <div class="value-col">
+          <div class="vc-amount"><span class="cur">฿</span>1,200</div>
+          <div class="vc-divider"></div>
+          <div class="vc-tier">Drop-in</div>
+          <div class="vc-sub">1 session</div>
+          <div class="vc-save vc-baseline">baseline</div>
         </div>
-        <div class="chart-bar">
-          <div class="bar-visual" style="height: 83%;">฿1,000</div>
-          <div class="bar-label"><div class="name">Weekly</div><div class="desc">6 sessions</div></div>
+        <div class="value-col">
+          <div class="vc-amount"><span class="cur">฿</span>1,000</div>
+          <div class="vc-divider"></div>
+          <div class="vc-tier">Weekly</div>
+          <div class="vc-sub">6 sessions</div>
+          <div class="vc-save">−17%</div>
         </div>
-        <div class="chart-bar">
-          <div class="bar-visual" style="height: 73%;">฿875</div>
-          <div class="bar-label"><div class="name">2-Week</div><div class="desc">12 sessions</div></div>
+        <div class="value-col">
+          <div class="vc-amount"><span class="cur">฿</span>875</div>
+          <div class="vc-divider"></div>
+          <div class="vc-tier">2-Week</div>
+          <div class="vc-sub">12 sessions</div>
+          <div class="vc-save">−27%</div>
         </div>
-        <div class="chart-bar">
-          <div class="bar-visual featured" style="height: 69%;">฿833</div>
-          <div class="bar-label"><div class="name">4-Week</div><div class="desc">24 sessions</div></div>
+        <div class="value-col featured">
+          <div class="vc-amount"><span class="cur">฿</span>833</div>
+          <div class="vc-divider"></div>
+          <div class="vc-tier">4-Week</div>
+          <div class="vc-sub">24 sessions</div>
+          <div class="vc-save">−31%</div>
         </div>
       </div>
     </div>
